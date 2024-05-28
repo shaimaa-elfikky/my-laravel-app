@@ -26,7 +26,7 @@ Route::prefix(LaravelLocalization::setLocale().'/admin')->middleware(['localeSes
 
     //------------------------------------------------------AUTH
     Route::middleware('auth')->group(function () {
-
+     Route::post('', 'Auth\LoginController@logout')->name('logout');
     //-------------------------------------------------------INDEX
         Route::view('', 'admin.index')->name('index');
 
