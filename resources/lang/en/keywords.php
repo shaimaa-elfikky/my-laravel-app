@@ -36,8 +36,8 @@ return [
     'add'  => 'Add New',
     'add_new_items'  => 'Add New Item',
     'submit'  => 'Submit',
-    'show_service'     => 'Show Service',
-    'edit_service'     => 'Edit Service',
+    'show_item'     => 'Show Item',
+    'edit_item'     => 'Edit Item',
 
     // features module
     'features'         => 'Features',

@@ -31,4 +31,8 @@ return [
      'add'  => 'اضــافة',
      'add_new_items'  => 'اضافة بند جديد',
      'submit'  => ' اضافـة',
-];
+     'edit_item'  => ' تعديل البند',
+     'updated_successfully' =>'تم تعديل البيانات بنجاح'
+    
+    
+    ];
