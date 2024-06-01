@@ -15,20 +15,32 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 Route::prefix(LaravelLocalization::setLocale().'/admin')->middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])->group(function () {
-    //------------------------------------------------------LOGIN
+    //------------------------------------------------------LOGIN ROUTES
     Route::get('login', 'Auth\LoginController@showLoginForm');
 
     Route::post('login', 'Auth\LoginController@login')->name('login');
 
-    //------------------------------------------------------AUTH
+
+
+    //------------------------------------------------------AUTH ROUTES
     Route::middleware('auth')->group(function () {
+
+     //------------------------------------------------------LOGOUT 
      Route::post('', 'Auth\LoginController@logout')->name('logout');
-    //-------------------------------------------------------INDEX
-        Route::view('', 'admin.index')->name('index');
+     
+     //-------------------------------------------------------INDEX
+     Route::view('', 'admin.index')->name('index');
+
+
+     //-------------------------------------------------------ITEMS
+     Route::resource('items', ItemController::class);
+
+    
+
+
+
 
     });
 
@@ -36,11 +48,5 @@ Route::prefix(LaravelLocalization::setLocale().'/admin')->middleware(['localeSes
 
 });
 
-//Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::get('/dashboard', function () {
-//     // Protected route content
-// })->middleware('auth');
 
