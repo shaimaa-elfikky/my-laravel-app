@@ -4,21 +4,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::prefix(LaravelLocalization::setLocale().'/admin')->middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])->group(function () {
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN Routes
+|--------------------------------------------------------------------------
+
+*/
+Route::prefix(LaravelLocalization::setLocale() . '/admin')->middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])->group(function () {
+
     //------------------------------------------------------LOGIN
     Route::get('login', 'Auth\LoginController@showLoginForm');
 
@@ -26,14 +25,16 @@ Route::prefix(LaravelLocalization::setLocale().'/admin')->middleware(['localeSes
 
     //------------------------------------------------------AUTH
     Route::middleware('auth')->group(function () {
-     Route::post('', 'Auth\LoginController@logout')->name('logout');
-    //-------------------------------------------------------INDEX
-        Route::view('', 'admin.index')->name('index');
 
+        //------------------------------------------------------LOGOUT
+            Route::post('', 'Auth\LoginController@logout')->name('logout');
+
+        //-------------------------------------------------------HOME PAGE
+            Route::view('', 'admin.index')->name('index');
+
+        //-------------------------------------------------------ITEM
+            Route::view('', 'admin.index')->name('index');
     });
-
-
-
 });
 
 //Auth::routes();
@@ -43,4 +44,3 @@ Route::prefix(LaravelLocalization::setLocale().'/admin')->middleware(['localeSes
 // Route::get('/dashboard', function () {
 //     // Protected route content
 // })->middleware('auth');
-
