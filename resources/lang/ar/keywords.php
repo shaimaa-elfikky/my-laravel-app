@@ -34,6 +34,7 @@ return [
      'edit_item'  => ' تعديل البند',
      'updated_successfully' =>'تم تعديل البيانات بنجاح',
      'deleted_successfully' => 'تم حذف البيانات بنجاح',
+     'cannot_delete_followed_item'=> 'لا يمكن حذف البيـــان'
 
 
     ];

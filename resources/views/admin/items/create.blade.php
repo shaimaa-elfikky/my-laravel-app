@@ -40,7 +40,13 @@
                     <div class="col-md-6">                  
                       <div class="form-group mb-3">
                         <label for="name">{{__('keywords.follow_item_id')}} </label>
-                        <input type="text" id="example-email" name="follow_item_id" class="form-control" placeholder="{{__('keywords.follow_item_id')}}">
+                        <select class="form-control" name="follow_item_id">
+                                                <option value="">اختر</option>
+                                            @foreach($follow_item_id as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                        </select>
+                       
                       </div>     
                       @error('follow_item_id')
                       <span class="text-danger">{{$message}}</span>
@@ -49,7 +55,13 @@
                     <div class="col-md-6">                  
                       <div class="form-group mb-3">
                         <label for="name">{{__('keywords.calc_fl')}} </label>
-                        <input type="text" id="example-email" name="calc_fl" class="form-control" placeholder="{{__('keywords.calc_fl')}}">
+                        <select id="inputState5" class="form-control" name="calc_fl">                             
+                              <option value= "0">تجميع لنفس البند من الشركات</option>
+                              <option value= "1">قيمة نفس البند للقابضة</option>
+                              <option value= "2">من بنود اخرى</option>
+                              
+                            </select>
+                        
                       </div>
                       @error('calc_fl')
                       <span class="text-danger">{{$message}}</span>

@@ -23,6 +23,7 @@ return [
     'created_successfully' => 'Your record created successfully',
     'updated_successfully' => 'Your record updated successfully',
     'deleted_successfully' => 'Your record has been deleted successfully',
+    'cannot_delete_followed_item'=>'Your record can not be deleted',
     'no_records_found'     => 'No Records Found',
     'components'           => 'Components',
 

@@ -24,10 +24,10 @@ class StoreItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|unique:item,name|max:255',
             'code' => 'required|string|unique:item,code|max:255',
             'follow_item_id' => 'nullable|integer|exists:item,id',
-            'calc_fl' => 'required|boolean',
+            'calc_fl' => 'required',
         ];
     }
 

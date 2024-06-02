@@ -20,6 +20,11 @@
 
             <div class="card shadow">
                 <div class="card-body">
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 @if(session('succsess'))
                     <div class="alert alert-success">{{session('succsess')}}</div>
                     @endif
@@ -42,8 +47,17 @@
                             <td style="background-color:lightgrey;">{{$items->firstItem() + $loop->index}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->code}}</td>
-                            <td>{{$item->follow_item_id}}</td>
-                            <td>{{$item->calc_fl}}</td>
+                            @if ($item->following)
+                            <td>{{$item->following->name }}</td> @else
+                            <td>-</td> @endif
+                            @if($item->calc_fl == 0)
+                            <td>تجميع لنفس البند من الشركات</td>
+                            @elseif($item->calc_fl == 1)
+                            <td>قيمة نفس البند للقابضة</td>
+                            @elseif($item->calc_fl == 2)
+                            <td> من بنود اخرى</td>
+                            @endif
+                           
                             <td>
                                 <a href="{{route('items.edit',['item'=>$item])}}" class="btn btn-sm btn-success">
                                     <i class="fe fe-edit fa-2x"></i>
