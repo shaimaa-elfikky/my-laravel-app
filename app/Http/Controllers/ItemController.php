@@ -2,40 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Item;
+use App\Models\Item;
+use App\Http\Requests\StoreItemRequest;
+use App\Http\Requests\UpdateItemRequest;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function index()
     {
-        //
+        $items = Item::paginate(10);
+
+        return view('admin.items.index' ,get_defined_vars());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.items.create' ,get_defined_vars());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(StoreItemRequest $request)
     {
-        //
+       // dd($request->all() );
+        $data = $request->validated();
+
+        Item::create($data);
+
+
+        return redirect()->route('items.index')->with('succsess',__('keywords.created_successfully'));
+
     }
 
     /**
@@ -49,37 +48,27 @@ class ItemController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Item $item)
     {
-        //
+        return view('admin.items.edit',get_defined_vars());
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Item $item)
+
+    public function update(UpdateItemRequest $request , Item $item)
     {
-        //
+        $data = $request->validated();
+
+        $item->update($data);
+
+        return redirect()->route('items.index')->with('succsess',__('keywords.updated_successfully'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Item $item)
     {
-        //
+        $item->delete();
+
+        return redirect()->route('items.index')->with('succsess', __('keywords.deleted_successfully'));
     }
 }

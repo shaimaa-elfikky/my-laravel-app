@@ -9,8 +9,9 @@
         @include('admin.parcials.navbar')
         @include('admin.parcials.sidebar')
         <!-- main -->
-
+    <main role="main" class="main-content">
         @yield('content')
+    </main>
     </div> <!-- .wrapper -->
     @include('admin.parcials.script')
 </body>

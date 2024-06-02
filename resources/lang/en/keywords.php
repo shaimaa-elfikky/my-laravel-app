@@ -26,14 +26,18 @@ return [
     'no_records_found'     => 'No Records Found',
     'components'           => 'Components',
 
-    // Services module
-    'services'         => 'Services',
-    'title'            => 'Title',
-    'icon'             => 'Icon',
-    'description'      => 'Description',
-    'add_new_service'  => 'Add New Service',
-    'show_service'     => 'Show Service',
-    'edit_service'     => 'Edit Service',
+    // Items module
+    'items'         => 'Items',
+    'name'            => 'Name',
+    'code'             => 'Code',
+    'follow_item_id'      => 'Follow_Item',
+    'calc_id'  => 'Clac',
+    'no data found'  => 'No Data Found',
+    'add'  => 'Add New',
+    'add_new_items'  => 'Add New Item',
+    'submit'  => 'Submit',
+    'show_item'     => 'Show Item',
+    'edit_item'     => 'Edit Item',
 
     // features module
     'features'         => 'Features',
