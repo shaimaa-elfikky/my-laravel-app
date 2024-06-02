@@ -21,7 +21,7 @@ class UpdateItemRequest extends FormRequest
      *
      * @return array
      */
-   
+
         public function rules()
     {
         return [
@@ -43,5 +43,5 @@ class UpdateItemRequest extends FormRequest
             'calc_fl' => __('keywords.calc_fl'),
         ];
     }
-    
+
 }

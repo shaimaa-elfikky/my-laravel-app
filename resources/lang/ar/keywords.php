@@ -33,7 +33,7 @@ return [
      'submit'  => ' اضافـة',
      'edit_item'  => ' تعديل البند',
      'updated_successfully' =>'تم تعديل البيانات بنجاح',
-     'deleted_successfully' => 'تم الحذف البيانات بنجاح',
+     'deleted_successfully' => 'تم حذف البيانات بنجاح',
 
 
     ];
