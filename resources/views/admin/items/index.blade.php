@@ -12,22 +12,17 @@
             <div class="page-title-box d-sm-flex align-items-center justify-content-between mb-3">
              <h2 class="page-title">{{__('keywords.items')}}</h2>
                 <div class="page-title-right">
-                    <a href="{{route('items.create')}}" class="btn btn-sm btn-primary">
+                    {{-- <a href="{{route('items.create')}}" class="btn btn-sm btn-primary">
                         {{__('keywords.add')}}
-                    </a>
+                    </a> --}}
+                    <x-action-component href="{{route('items.create')}}" type="create" text="__('keywords.add')" color="primary"></x-action-component>
                 </div>
             </div>
 
             <div class="card shadow">
                 <div class="card-body">
-                @if (session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                @endif
-                @if(session('succsess'))
-                    <div class="alert alert-success">{{session('succsess')}}</div>
-                    @endif
+                 <x-error-alert></x-error-alert>
+                 <x-success-alert></x-success-alert>
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -57,14 +52,12 @@
                             @elseif($item->calc_fl == 2)
                             <td> من بنود اخرى</td>
                             @endif
-                           
+
                             <td>
-                                <a href="{{route('items.edit',['item'=>$item])}}" class="btn btn-sm btn-success">
-                                    <i class="fe fe-edit fa-2x"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="fe fe-eye fa-2x"></i>
-                                </a>
+                          
+                                <x-action-component href="{{route('items.edit',['item'=>$item])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component>
+
+                                <x-action-component href="#" type="show" text="<i class='fe fe-edit fa-2x'></i>" color="warning"></x-action-component>
                              <form action="{{route('items.destroy',['item'=>$item])}}" id="deleteForm-{{$item->id}}"method="post" class="d-inline">
                                 @csrf
                                 @method('DELETE')
@@ -78,10 +71,7 @@
                         </tr>
                         @endforeach
                         @else
-                        <tr>
-                            <td colspan="6"><div class="alert alert-danger"> {{__('keywords.no data found')}} </div>
-                            </td>
-                        </tr>
+                          <x-empty-alert></x-empty-alert>
                         @endif
                         </tbody>
                     </table>

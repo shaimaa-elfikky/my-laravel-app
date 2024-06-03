@@ -15,27 +15,25 @@
               </svg>
             </a>
           </div>
-          <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-         
-              <li class="nav-item w-100">
-              <a class="nav-link" href="{{route('index')}}">
-                <i class="fe fe-home fe-16"></i>
-                <span class="ml-3 item-text">{{ __('keywords.home')}}</span>
-              </a>
-              </li>
-             
-            </li>
-          </ul>
-          <p class="text-muted nav-heading mt-4 mb-1">
-            <span>{{__('keywords.components')}}</span>
-          </p>
-          <i class="nav-item w-100">
-              <a class="nav-link" href="{{route('items.index')}}">
-                <i class="fe fe-file-text fe-16"></i>
-                <span class="ml-3 item-text">{{ __('keywords.items')}}</span>
-              </a>
-          </i>
- 
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item dropdown">
+
+                    <li class="nav-item w-100">
+                    <a class="nav-link" href="{{route('index')}}">
+                        <i class="fe fe-home fe-16"></i>
+                        <span class="ml-3 item-text">{{ __('keywords.home')}}</span>
+                    </a>
+                    </li>
+
+                </li>
+            </ul>
+            <p class="text-muted nav-heading mt-4 mb-1">
+                <span>{{__('keywords.components')}}</span>
+            </p>
+
+                  {{-- Items --}}
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <x-sidebarTab href="{{route('items.index')}}" icon="fe-file-text" name="{{ __('keywords.items')}}"></x-sidebarTab>
+            </ul>
         </nav>
 </aside>
