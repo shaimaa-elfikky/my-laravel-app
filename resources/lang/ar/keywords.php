@@ -26,7 +26,7 @@ return [
      'code'  => 'الكــــود',
      'follow_item_id'  => 'الصنف التابع له',
      'calc_fl'  => 'طريقة احتسابه',
-     'actions'  => 'العمليات',
+     'actions'  => 'العمليــــات',
      'no data found'  => 'لا توجد بيـــانات ',
      'add'  => 'اضــافة',
      'add_new_items'  => 'اضافة بند جديد',
@@ -34,7 +34,19 @@ return [
      'edit_item'  => ' تعديل البند',
      'updated_successfully' =>'تم تعديل البيانات بنجاح',
      'deleted_successfully' => 'تم حذف البيانات بنجاح',
-     'cannot_delete_followed_item'=> 'لا يمكن حذف البيـــان'
+     'cannot_delete_followed_item'=> 'لا يمكن حذف البيـــان',
+
+
+     //Companies page translation
+     'companies' => 'الشركــــات',
+     'address' => 'العنوان',
+     'aff_or_not' => 'تابعة / غير تابعة',
+     'owner_or_not' => 'مالكة / غير مالكة',
+     'is_active' => ' مسموح/ غير مسموح',
+     'telephone' => 'رقم الهاتف',
+     'website' => 'الموقع الالكتروني',
+     'add_new_companies'=>'اضافة شركة جديده',
+     'edit_item'  => ' تعديل الشركة',
 
 
     ];

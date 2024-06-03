@@ -41,7 +41,7 @@ return [
     'edit_item'     => 'Edit Item',
 
     // features module
-    'features'         => 'Features',
+    'companies'         => 'Comapnies',
     'add_new_feature'  => 'Add New Feature',
     'show_feature'     => 'Show Feature',
     'edit_feature'     => 'Edit Feature',

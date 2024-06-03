@@ -29,18 +29,8 @@ Route::prefix(LaravelLocalization::setLocale().'/admin')->middleware(['localeSes
      Route::resource('items', ItemController::class);
 
 
-
-
-
-
-        //------------------------------------------------------LOGOUT
-            Route::post('', 'Auth\LoginController@logout')->name('logout');
-
-        //-------------------------------------------------------HOME PAGE
-            Route::view('', 'admin.index')->name('index');
-
-        //-------------------------------------------------------ITEM
-            Route::view('', 'admin.index')->name('index');
+    //-------------------------------------------------------COMPANY
+    Route::resource('companies', CompanyController::class);
     });
 });
 

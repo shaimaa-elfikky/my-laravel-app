@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title' ,__('keywords.index'))
+@section('title' ,__('keywords.items'))
 @section('content')
 
 
@@ -53,20 +53,11 @@
                             <td> من بنود اخرى</td>
                             @endif
 
-                            <td>
-                          
-                                <x-action-component href="{{route('items.edit',['item'=>$item])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component>
+                            <td>                          
+                            <x-action-component href="{{route('items.edit',['item'=>$item])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component>
 
-                                <x-action-component href="#" type="show" text="<i class='fe fe-edit fa-2x'></i>" color="warning"></x-action-component>
-                             <form action="{{route('items.destroy',['item'=>$item])}}" id="deleteForm-{{$item->id}}"method="post" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-sm btn-danger" onClick="confirmDelete({{$item->id}})">
-                                    <i class="fe fe-trash-2 fa-2x"></i>
-                                </button>
-
-                             </form>
-
+                            <x-action-component href="#" type="show" text="<i class='fe fe-edit fa-2x'></i>" color="warning"></x-action-component>
+                            <x-button-component href="{{route('items.destroy',['item'=>$item])}}" id="{{$item->id}}"></x-button-component>                        
                             </td>
                         </tr>
                         @endforeach
@@ -82,16 +73,5 @@
     </div>
 </div>
 
-<script>
-
-     function confirmDelete(id){
-
-        if(confirm('Are You Sure You Want TO delete !')){
-              document.getElementById('deleteForm' + id).submit();
-        }
-
-     }
-
-</script>
 
 @endsection

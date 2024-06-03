@@ -35,5 +35,10 @@
             <ul class="navbar-nav flex-fill w-100 mb-2">
                 <x-sidebarTab href="{{route('items.index')}}" icon="fe-file-text" name="{{ __('keywords.items')}}"></x-sidebarTab>
             </ul>
+
+            {{-- Companies --}}
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <x-sidebarTab href="{{route('companies.index')}}" icon="fe-codesandbox" name="{{ __('keywords.companies')}}"></x-sidebarTab>
+            </ul>
         </nav>
 </aside>

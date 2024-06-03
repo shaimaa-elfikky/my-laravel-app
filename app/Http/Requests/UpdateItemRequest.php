@@ -26,7 +26,7 @@ class UpdateItemRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'code' => 'required|string|unique:item,code|max:255',
+            'code' => 'required|numeric|unique:item,code|max:255',
             'follow_item_id' => 'nullable|integer|exists:item,id',
             'calc_fl' => 'required|boolean',
         ];

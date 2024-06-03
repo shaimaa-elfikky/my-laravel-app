@@ -14,6 +14,18 @@
     </main>
     </div> <!-- .wrapper -->
     @include('admin.parcials.script')
+
+    <script>
+
+     function confirmDelete(id){
+
+        if(confirm('Are You Sure You Want TO delete !')){
+              document.getElementById('deleteForm' + id).submit();
+        }
+
+     }
+
+</script>
 </body>
 
 </html>
