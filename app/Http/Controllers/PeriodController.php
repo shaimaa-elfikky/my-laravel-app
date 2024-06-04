@@ -77,8 +77,9 @@ class periodController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Period $period)
     {
-        //
+        $period->delete();
+        return redirect()->route('periods.index')->with('succsess', __('keywords.deleted_successfully'));
     }
 }

@@ -56,6 +56,14 @@ return [
     'fin_year' => 'العام المالى',
     'add_new_periods'=> 'اضافة فترة جديدة',
     'duplicate_date_range' => 'تم تكرار التاريخ' ,
+    'edit_periods'         => 'تعديل الفترة',
+
+
+    //Fin-State page translation
+    'fin-states' => 'القوائم المالية',
+    'add_new_fin-states' => 'اضافة قائمة مالية جديدة',
+    'edit_fin-state'         => 'تعديل القائمة المالية',
+    'fin_stat_type'       =>  'نوع القائمة'
 
 
 

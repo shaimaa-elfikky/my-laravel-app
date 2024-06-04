@@ -35,5 +35,8 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')->middleware(['localeS
 
         //-------------------------------------------------------PERIOD
         Route::resource('periods', PeriodController::class);
+
+        //-------------------------------------------------------Fin-State
+        Route::resource('fin-states', FinStateController::class);
     });
 });
