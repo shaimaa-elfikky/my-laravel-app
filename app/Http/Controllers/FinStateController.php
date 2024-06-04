@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorefinStateRequest;
+use App\Http\Requests\UpdateFinStateRequest;
 use App\Models\finState;
 use Illuminate\Http\Request;
 
@@ -28,10 +29,11 @@ class FinStateController extends Controller
 
 
 
-    public function store(StorefinStateRequest $request , FinState $finState)
+    public function store(StorefinStateRequest $request)
     {
         $data = $request->validated();
         FinState::create($data);
+
         redirect()->route('fin-states.index')->with('succsess', __('keywords.created_successfully'));
     }
 
@@ -44,14 +46,19 @@ class FinStateController extends Controller
 
 
 
-    public function edit($id)
+    public function edit(FinState $finState)
     {
+
+
         return view('admin.fin-states.edit', get_defined_vars());
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UpdateFinStateRequest $request, FinState $finState)
     {
+        $data = $request->validated();
+        $finState->update($data);
+
         redirect()->route('fin-states.update')->with('succsess', __('keywords.updated_successfully'));
     }
 

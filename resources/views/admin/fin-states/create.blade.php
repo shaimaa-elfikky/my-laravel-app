@@ -37,7 +37,14 @@
                     <div class="col-md-6">
                       <div class="form-group mb-3">
                       <x-form-label title="fin_stat_type"></x-form-label>
-                        <input type="text" id="fin_stat_type" name="fin_stat_type" class="form-control" placeholder="{{__('keywords.fin_stat_type')}}">
+                          <select id="inputState5" class="form-control" name="fin_stat_type">
+                              <option value= "0">    قائمة شركات</option>
+                              <option value= "1">  قائمة مجمعة </option>
+                              <option value= "2">  بيان تحليلي</option>
+                              <option value= "3">  بيان تفصيلي</option>
+
+                            </select>
+
                       </div>
                       <x-validation-error field="fin_stat_type"></x-validation-error>
                     </div>

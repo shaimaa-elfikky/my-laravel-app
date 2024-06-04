@@ -43,10 +43,10 @@
 
 
                             <td style="white-space: nowrap;">
-                            <x-action-component href="{{route('fin-states.edit',['finState'=>$finState])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component>
+                            {{-- <x-action-component href="{{route('fin-states.edit',['finState'=>$finState])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component> --}}
 
                             <x-action-component href="#" type="show" text="<i class='fe fe-edit fa-2x'></i>" color="warning"></x-action-component>
-                            <x-button-component href="{{route('fin-states.destroy',['finState'=>$finState])}}" id="{{$finState->id}}"></x-button-component>
+                            {{-- <x-button-component href="{{route('fin-states.destroy',['finState'=>$finState])}}" id="{{$finState->id}}"></x-button-component> --}}
                             </td>
                         </tr>
                         @endforeach
