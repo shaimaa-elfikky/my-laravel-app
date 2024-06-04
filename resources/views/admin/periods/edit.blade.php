@@ -38,7 +38,7 @@
                     <div class="col-md-6">
                       <div class="form-group mb-3">
                       <x-form-label title="fin_year"></x-form-label>
-                        <input type="text" id="fin_year" name="fin_year" value={{$period->date_to}}  class="form-control" placeholder="{{__('keywords.fin_year')}}">
+                        <input type="text" id="fin_year" name="fin_year" value={{$period->fin_year}}  class="form-control" placeholder="{{__('keywords.fin_year')}}">
                       </div>
                       <x-validation-error field="fin_year"></x-validation-error>
                     </div>

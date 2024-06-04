@@ -59,6 +59,8 @@ class periodController extends Controller
 
     public function update(UpdatePeriodRequest $request, Period $period)
     {
+
+        //dd($period);
         $data = $request->validated();
 
         $existingPeriod = Period::where('date_from', '<=', $data['date_to'])
