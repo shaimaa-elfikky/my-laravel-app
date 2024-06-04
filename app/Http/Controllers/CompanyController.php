@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Http\Requests\StoreCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -38,6 +39,7 @@ class CompanyController extends Controller
     public function store(StoreCompanyRequest $request)
     {
         $data = $request->validated();
+        //dd($data);
         Company::create($data);
         return redirect()->route('companies.index')->with('succsess',__('keywords.created_successfully'));
     }
@@ -48,26 +50,32 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Company $company)
     {
         //
     }
 
-  
-    public function edit($id)
+
+    public function edit(Company $company)
     {
+
+
         return view('admin.companies.edit',get_defined_vars());
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UpdateCompanyRequest $request, Company $company)
     {
+        $data = $request->validated();
+        $company->update($data);
         return redirect()->route('companies.index')->with('succsess',__('keywords.updated_successfully'));
     }
 
-    
-    public function destroy($id)
+
+    public function destroy(Company $company)
     {
+
+        $company->delete();
         return redirect()->route('companies.index')->with('succsess', __('keywords.deleted_successfully'));
     }
 }

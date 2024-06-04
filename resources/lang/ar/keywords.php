@@ -46,7 +46,17 @@ return [
      'telephone' => 'رقم الهاتف',
      'website' => 'الموقع الالكتروني',
      'add_new_companies'=>'اضافة شركة جديده',
-     'edit_item'  => ' تعديل الشركة',
+     'edit_companies'  => ' تعديل الشركة',
+
+    //Periods page translation
+    'periods' => 'الفتــرات',
+    'address' => 'العنوان',
+    'date_from'=> 'التاريخ من',
+    'date_to' => 'التاريخ الى',
+    'fin_year' => 'العام المالى',
+    'add_new_periods'=> 'اضافة فترة جديدة',
+    'duplicate_date_range' => 'تم تكرار التاريخ' ,
+
 
 
     ];

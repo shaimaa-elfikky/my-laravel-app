@@ -31,6 +31,10 @@ Route::prefix(LaravelLocalization::setLocale().'/admin')->middleware(['localeSes
 
     //-------------------------------------------------------COMPANY
     Route::resource('companies', CompanyController::class);
+
+    //-------------------------------------------------------PERIOD
+    Route::resource('periods', PeriodController::class);
+
     });
 });
 

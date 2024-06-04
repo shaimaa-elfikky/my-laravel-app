@@ -32,13 +32,18 @@
             </p>
 
                   {{-- Items --}}
-            <ul class="navbar-nav flex-fill w-100 mb-2">
+            <ul class="navbar-nav flex-fill w-100 mb-2" style="background-color:  #5389f5">
                 <x-sidebarTab href="{{route('items.index')}}" icon="fe-file-text" name="{{ __('keywords.items')}}"></x-sidebarTab>
             </ul>
 
             {{-- Companies --}}
-            <ul class="navbar-nav flex-fill w-100 mb-2">
+            <ul class="navbar-nav flex-fill w-100 mb-2" style="background-color:  #5389f5">
                 <x-sidebarTab href="{{route('companies.index')}}" icon="fe-codesandbox" name="{{ __('keywords.companies')}}"></x-sidebarTab>
+            </ul>
+
+             {{-- Period --}}
+            <ul class="navbar-nav flex-fill w-100 mb-2" style="background-color:  #5389f5">
+                <x-sidebarTab href="{{route('periods.index')}}" icon="fe-crosshair" name="{{ __('keywords.periods')}}"></x-sidebarTab>
             </ul>
         </nav>
 </aside>

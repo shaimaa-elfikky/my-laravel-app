@@ -12,9 +12,7 @@
             <div class="page-title-box d-sm-flex align-items-center justify-content-between mb-3">
              <h2 class="page-title">{{__('keywords.items')}}</h2>
                 <div class="page-title-right">
-                    {{-- <a href="{{route('items.create')}}" class="btn btn-sm btn-primary">
-                        {{__('keywords.add')}}
-                    </a> --}}
+                    
                     <x-action-component href="{{route('items.create')}}" type="create" text="__('keywords.add')" color="primary"></x-action-component>
                 </div>
             </div>
@@ -33,7 +31,7 @@
                             <th style="font-weight: bold;">{{__('keywords.calc_fl')}}</th>
                             <th style="font-weight: bold;">{{__('keywords.actions')}}</th>
 
-                          </tr>
+                        </tr>
                         </thead>
                         <tbody>
                         @if(count($items)> 0 )
@@ -53,11 +51,11 @@
                             <td> من بنود اخرى</td>
                             @endif
 
-                            <td>                          
+                            <td>
                             <x-action-component href="{{route('items.edit',['item'=>$item])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component>
 
                             <x-action-component href="#" type="show" text="<i class='fe fe-edit fa-2x'></i>" color="warning"></x-action-component>
-                            <x-button-component href="{{route('items.destroy',['item'=>$item])}}" id="{{$item->id}}"></x-button-component>                        
+                            <x-button-component href="{{route('items.destroy',['item'=>$item])}}" id="{{$item->id}}"></x-button-component>
                             </td>
                         </tr>
                         @endforeach
@@ -66,7 +64,7 @@
                         @endif
                         </tbody>
                     </table>
-                    {{$items->links()}}
+                          {{$items->links()}}
                 </div>
             </div>
         </div>
