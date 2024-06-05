@@ -28,25 +28,37 @@
                             <th style="font-weight: bold;">{{__('keywords.name')}}</th>
                             <th style="font-weight: bold;">{{__('keywords.code')}}</th>
                             <th style="font-weight: bold;">{{__('keywords.fin_stat_type')}}</th>
+                            <th style="font-weight: bold;"></th>
+                            <th style="font-weight: bold;">{{__('keywords.actions')}}</th>
 
 
                         </tr>
                         </thead>
                         <tbody>
-                        @if(count($finStates)> 0 )
-                        @foreach($finStates as $key=>$finState )
+                        @if(count($fin_states)> 0 )
+                        @foreach($fin_states as $key=>$fin_state )
                         <tr>
-                           <td style="background-color:lightgrey;">{{$finStates->firstItem() + $loop->index}}</td>
-                            <td>{{$finState->name}}</td>
-                            <td>{{$finState->code}}</td>
-                            <td>{{$finState->fin_stat_type}}</td>
+                           <td style="background-color:lightgrey;">{{$fin_states->firstItem() + $loop->index}}</td>
+                            <td>{{$fin_state->name}}</td>
+                            <td>{{$fin_state->code}}</td>
+                            <td>{{$fin_state->fin_stat_type}}</td>
+                             @if($fin_state->fin_stat_type == 0)
+                            <td>  شركات</td>
+                            @elseif($fin_state->fin_stat_type == 1)
+                            <td>قائمة مجمعة</td>
+                            @elseif($fin_state->fin_stat_type == 2)
+                            <td>   بيان تحليلي</td>
+                             @elseif($fin_state->fin_stat_type == 3)
+                            <td>   بيان تفصيلي</td>
+                            @endif
+                            <td><a  class="btn btn-primary" href="{{route('item-fin-stats.index', ['fin_state' => $fin_state->id])}}">البند</a></td>
 
 
                             <td style="white-space: nowrap;">
-                            {{-- <x-action-component href="{{route('fin-states.edit',['finState'=>$finState])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component> --}}
+                            <x-action-component href="{{route('fin-states.edit',['fin_state'=>$fin_state])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component>
 
                             <x-action-component href="#" type="show" text="<i class='fe fe-edit fa-2x'></i>" color="warning"></x-action-component>
-                            {{-- <x-button-component href="{{route('fin-states.destroy',['finState'=>$finState])}}" id="{{$finState->id}}"></x-button-component> --}}
+                            <x-button-component href="{{route('fin-states.destroy',['fin_state'=>$fin_state])}}" id="{{$fin_state->id}}"></x-button-component>
                             </td>
                         </tr>
                         @endforeach
@@ -55,7 +67,7 @@
                         @endif
                         </tbody>
                     </table>
-                          {{$finStates->links()}}
+                          {{$fin_states->links()}}
                 </div>
             </div>
         </div>

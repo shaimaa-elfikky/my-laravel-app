@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -38,5 +39,9 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')->middleware(['localeS
 
         //-------------------------------------------------------Fin-State
         Route::resource('fin-states', FinStateController::class);
+
+
+        //-------------------------------------------------------ITEM-FIN-STAT
+        Route::resource('item-fin-stats', ItemFinStatController::class);
     });
 });

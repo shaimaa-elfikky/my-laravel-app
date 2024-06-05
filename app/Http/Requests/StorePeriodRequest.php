@@ -24,9 +24,9 @@ class StorePeriodRequest extends FormRequest
     public function rules()
     {
         return [
-            'date_from' => 'required|date_format:Y-m-d',
-            'date_to' => 'required|date_format:Y-m-d',
-            'fin_year' => 'required', // Financial year format (YYYY-YYYY)
+            'date_from' => ['required', 'date', 'before:date_to'],
+            'date_to' => ['required', 'date', 'after:date_from'],
+            'fin_year' => ['required', 'integer', 'min:2000', 'max:' . date('Y')],
         ];
     }
     public function attributes()

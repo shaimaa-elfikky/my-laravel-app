@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title' ,__('keywords.add_new_fin-states'))
+@section('title' ,__('keywords.add_new_fin_states'))
 @section('content')
 
 
@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-fin-states-center justify-content-between mb-3">
-             <h2 class="page-title">{{__('keywords.add_new_fin-states')}}</h2>
+             <h2 class="page-title">{{__('keywords.add_new_fin_states')}}</h2>
 
             </div>
 

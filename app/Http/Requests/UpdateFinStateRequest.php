@@ -24,10 +24,9 @@ class UpdateFinStateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:fin_stat,name|max:255',
+            'name' => 'required|string|unique:fin_stat,name,' . $this->fin_stat->id,
             'code' => 'required|string|max:255',
-            'fin_stat_type' => 'required |integer',
-
+            'fin_stat_type' => 'required|integer',
         ];
     }
 

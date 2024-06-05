@@ -50,5 +50,10 @@
             <ul class="navbar-nav flex-fill w-100 mb-2" style="background-color:  #5389f5">
                 <x-sidebarTab href="{{route('fin-states.index')}}" icon="fe-dollar-sign" name="{{ __('keywords.fin-states')}}"></x-sidebarTab>
             </ul>
+
+              {{-- Item-Fin-State --}}
+            {{-- <ul class="navbar-nav flex-fill w-100 mb-2" style="background-color:  #5389f5">
+                <x-sidebarTab href="{{route('item-fin-stats.index')}}" icon="fe-file-minus" name="{{ __('keywords.item-fin-stats')}}"></x-sidebarTab>
+            </ul> --}}
         </nav>
 </aside>

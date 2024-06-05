@@ -31,17 +31,12 @@ class periodController extends Controller
         //dd($request);
         $data = $request->validated();
 
-        $existingPeriod = Period::where('date_from', '<=', $data['date_to'])
-        ->where('date_to', '>=', $data['date_from'])
-        ->first(); // Check for existing overlapping period
-
-        if ($existingPeriod) {
-
-            return redirect()->back()->withErrors(['date_from' => __('keywords.duplicate_date_range')]);
-        }
-
-        Period::create($data);
-        redirect()->route('periods.index')->with('success',__('keywords.created_successfully'));
+        $period = new Period;
+        $period->date_from = $data['date_from'];
+        $period->date_to = $data['date_to'];
+        $period->fin_year = $data['fin_year'];
+        $period->save();
+        return redirect()->route('periods.index')->with('success', __('keywords.created_successfully'));
     }
 
 
@@ -63,23 +58,14 @@ class periodController extends Controller
         //dd($period);
         $data = $request->validated();
 
-        $existingPeriod = Period::where('date_from', '<=', $data['date_to'])
-        ->where('date_to', '>=', $data['date_from'])
-        ->first(); // Check for existing overlapping period
-
-        if ($existingPeriod) {
-
-            return redirect()->back()->withErrors(['date_from' => __('keywords.duplicate_date_range')]);
-        }
-
         $period->update($data);
-        redirect()->route('periods.index')->with('success', __('keywords.created_successfully'));
+        return redirect()->route('periods.index')->with('success', __('keywords.updated_successfully'));
     }
 
 
     public function destroy(Period $period)
     {
         $period->delete();
-        return redirect()->route('periods.index')->with('succsess', __('keywords.deleted_successfully'));
+        return redirect()->route('periods.index')->with('success', __('keywords.deleted_successfully'));
     }
 }

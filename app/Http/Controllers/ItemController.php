@@ -39,7 +39,7 @@ class ItemController extends Controller
         Item::create($data);
 
 
-        return redirect()->route('items.index')->with('succsess',__('keywords.created_successfully'));
+        return redirect()->route('items.index')->with('success',__('keywords.created_successfully'));
 
     }
 
@@ -70,7 +70,7 @@ class ItemController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('items.index')->with('succsess',__('keywords.updated_successfully'));
+        return redirect()->route('items.index')->with('success',__('keywords.updated_successfully'));
     }
 
 
@@ -83,7 +83,7 @@ class ItemController extends Controller
         }
         $item->delete();
 
-        return redirect()->route('items.index')->with('succsess', __('keywords.deleted_successfully'));
+        return redirect()->route('items.index')->with('success', __('keywords.deleted_successfully'));
 
 
     }

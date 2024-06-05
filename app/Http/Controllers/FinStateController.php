@@ -16,7 +16,7 @@ class FinStateController extends Controller
     public function index()
     {
 
-        $finStates = finState::paginate(5);
+        $fin_states = finState::paginate(5);
         return view('admin.fin-states.index',get_defined_vars());
     }
 
@@ -34,7 +34,7 @@ class FinStateController extends Controller
         $data = $request->validated();
         FinState::create($data);
 
-        redirect()->route('fin-states.index')->with('succsess', __('keywords.created_successfully'));
+        return redirect()->route('fin-states.index')->with('success', __('keywords.created_successfully'));
     }
 
 
@@ -46,7 +46,7 @@ class FinStateController extends Controller
 
 
 
-    public function edit(FinState $finState)
+    public function edit(FinState $fin_state)
     {
 
 
@@ -54,18 +54,21 @@ class FinStateController extends Controller
     }
 
 
-    public function update(UpdateFinStateRequest $request, FinState $finState)
+    public function update(UpdateFinStateRequest $request, FinState $fin_state)
     {
-        $data = $request->validated();
-        $finState->update($data);
 
-        redirect()->route('fin-states.update')->with('succsess', __('keywords.updated_successfully'));
+        
+        $data = $request->validated();
+        $fin_state->update($data);
+
+        return  redirect()->route('fin-states.index')->with('success', __('keywords.updated_successfully'));
     }
 
 
 
-    public function destroy($id)
+    public function destroy(FinState $fin_state)
     {
-        return redirect()->route('fin-states.index')->with('succsess', __('keywords.deleted_successfully'));
+        $fin_state->delete();
+        return redirect()->route('fin-states.index')->with('success', __('keywords.deleted_successfully'));
     }
 }

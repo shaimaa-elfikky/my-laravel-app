@@ -41,7 +41,7 @@ class CompanyController extends Controller
         $data = $request->validated();
         //dd($data);
         Company::create($data);
-        return redirect()->route('companies.index')->with('succsess',__('keywords.created_successfully'));
+        return redirect()->route('companies.index')->with('success',__('keywords.created_successfully'));
     }
 
     /**
@@ -68,7 +68,7 @@ class CompanyController extends Controller
     {
         $data = $request->validated();
         $company->update($data);
-        return redirect()->route('companies.index')->with('succsess',__('keywords.updated_successfully'));
+        return redirect()->route('companies.index')->with('success',__('keywords.updated_successfully'));
     }
 
 
@@ -76,6 +76,6 @@ class CompanyController extends Controller
     {
 
         $company->delete();
-        return redirect()->route('companies.index')->with('succsess', __('keywords.deleted_successfully'));
+        return redirect()->route('companies.index')->with('success', __('keywords.deleted_successfully'));
     }
 }

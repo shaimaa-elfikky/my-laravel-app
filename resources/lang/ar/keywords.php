@@ -3,7 +3,7 @@
 return [
     'dashboard' => 'لوحة التحكم',
     'index'     => 'الصفحة الرئيسية',
-    'welcome'   => '!مرحبا',
+    'welcome'   => 'مرحبا !',
     'created_successfully' => 'تمت الاضافة بنجاح',
 
     // Login page translations
@@ -61,9 +61,11 @@ return [
 
     //Fin-State page translation
     'fin-states' => 'القوائم المالية',
-    'add_new_fin-states' => 'اضافة قائمة مالية جديدة',
-    'edit_fin-state'         => 'تعديل القائمة المالية',
-    'fin_stat_type'       =>  'نوع القائمة'
+    'add_new_fin_states' => 'اضافة قائمة مالية جديدة',
+    'edit_fin_states'         => 'تعديل القائمة المالية',
+    'fin_stat_type'       =>  'نوع القائمة',
+    'item-fin-stats'      =>  'بند في قائمة ',
+    'add_new_item-fin-stats' => 'اضافة بند في قائمة '
 
 
 
