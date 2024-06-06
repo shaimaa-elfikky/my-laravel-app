@@ -24,30 +24,24 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>#</th>
+
                             <th style="font-weight: bold;">{{__('keywords.name')}}</th>
-
-
+                            <th style="font-weight: bold;">{{__('keywords.actions')}}</th>
 
                         </tr>
                         </thead>
                         <tbody>
                         @if(count($item_fin_stats)> 0 )
-                        @foreach($item_fin_stats as $key=>$item_fin_stat )
+                        @foreach($item_fin_stats as $item_fin_stat )
                         <tr>
-                            {{-- <td style="background-color:lightgrey;">{{$item_fin_stats->firstItem() + $loop->index}}</td> --}}
-                                <td>
-                        {{ $item_fin_stat->item ? $item_fin_stat->item->name : 'Item not found' }}
-                    </td>
 
-
-
+                            <td> {{  $item_fin_stat->item->name}} </td>
                             <td style="white-space: nowrap;">
-                            <x-action-component href="{{route('item-fin-stats.edit',['item_fin_stat'=>$item_fin_stat])}}" type="edit" text="<i class='fe fe-edit fa-2x'></i>" color="success"></x-action-component>
 
                             <x-action-component href="#" type="show" text="<i class='fe fe-edit fa-2x'></i>" color="warning"></x-action-component>
-                            <x-button-component href="{{route('item-fin-stats.destroy',['item_fin_stat'=>$item_fin_stat])}}" id="{{$item_fin_stat->id}}"></x-button-component>
+                               <x-button-component href="{{route('item-fin-stats.destroy',['item_fin_stat'=>$item_fin_stat,'fin_state'=>request()->input('fin_state')])}}" id="{{$item_fin_stat->id}}"></x-button-component>
                             </td>
+
                         </tr>
                         @endforeach
                         @else
@@ -55,7 +49,7 @@
                         @endif
                         </tbody>
                     </table>
-                          {{-- {{$item_fin_stats->links()}} --}}
+
                 </div>
             </div>
         </div>

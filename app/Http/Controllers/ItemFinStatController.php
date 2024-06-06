@@ -7,15 +7,22 @@ use App\Models\FinState;
 use App\models\Item;
 use App\Models\ItemFinStat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ItemFinStatController extends Controller
 {
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $item_fin_stats = ItemFinStat::with('items')->get();
-          //dd($item_fin_stats);
+
+        $financialStateId = $request->input('fin_state');
+        // dd($financialStateId);
+        $item_fin_stats = ItemFinStat::with('item') // Eager load item relationship
+        ->where('fin_stat_id', $financialStateId)
+        ->get();
+
+       // dd($itemFinStats);
         return view('admin.item-fin-stats.index', get_defined_vars());
 
     }
@@ -38,43 +45,24 @@ class ItemFinStatController extends Controller
     {
 
         $data = $request->validated();
+
+        $financialStateId = $request->input('fin_stat_id');
+
         ItemFinStat::create($data);
 
-        return redirect()->route('item-fin-stats.index')->with('success',__('keywords.created_successfully'));
+        $redirectUrl = route('item-fin-stats.index') . '?fin_state=' . $financialStateId;
+
+        return redirect()->to($redirectUrl)->with('success',__('keywords.created_successfully'));
     }
-
-
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
-
-
-    public function edit(ItemFinStat $item_fin_stat)
-    {
-        return view('admin.item-fin-stats.edit', get_defined_vars());
-    }
-
-
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
 
 
     public function destroy(ItemFinStat $item_fin_stat)
     {
-
+        $financialStateId = request()->input('fin_state');
+        //dd($financialStateId);
         $item_fin_stat ->delete();
-        return redirect()->route('item-fin-stats.index')->with('success', __('keywords.deleted_successfully'));
+        $redirectUrl = route('item-fin-stats.index') . '?fin_state=' . $financialStateId;
+        return redirect()->to($redirectUrl)->with('success', __('keywords.deleted_successfully'));
 
     }
 }

@@ -22,11 +22,11 @@ class UpdateItemRequest extends FormRequest
      * @return array
      */
 
-        public function rules()
+    public function rules()
     {
         return [
             'name' => 'required|string|max:255',
-            'code' => 'required|numeric|unique:item,code|max:255',
+            'code' => 'required|numeric|max:255',
             'follow_item_id' => 'nullable|integer|exists:item,id',
             'calc_fl' => 'required|boolean',
         ];
@@ -43,5 +43,4 @@ class UpdateItemRequest extends FormRequest
             'calc_fl' => __('keywords.calc_fl'),
         ];
     }
-
 }

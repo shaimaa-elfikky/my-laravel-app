@@ -9,7 +9,7 @@ class ItemFinStat extends Model
     protected $table = 'item_fin_stat';
     protected $guarded = [''];
 
-    public function items()
+    public function item()
     {
         return $this->belongsTo(Item::class);
     }
